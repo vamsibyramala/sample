@@ -2,7 +2,7 @@ pipeline {
 
   agent any
   environment {
-      PATH = "/opt/maven/bin:$PATH"
+      PATH = "/usr/bin:$PATH"
   }
   stages {
       stage("git"){
@@ -18,7 +18,7 @@ pipeline {
       }
       stage("deploy"){
           steps{
-              deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://3.14.146.100:8081/')], contextPath: 'test', war: '**/*.war'
+              deploy adapters: [tomcat9(credentialsId: '4a4df800-f614-47e6-ae1c-27a024eaac0d', path: '', url: 'http://100.25.24.133:8080/')], contextPath: 'test', war: '**/*.war'
           }
       }
   }
